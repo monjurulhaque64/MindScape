@@ -1,0 +1,21 @@
+@keyframes logoAnimation {
+    0% {
+        color: #007bff;
+        transform: rotateY(0deg) scale(1);
+    }
+    50% {
+        color: #00ccff;
+        transform: rotateY(180deg) scale(1.2);
+    }
+    100% {
+        color: #007bff;
+        transform: rotateY(360deg) scale(1);
+    }
+}
+
+.logo-name {
+    animation-name: logoAnimation;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
