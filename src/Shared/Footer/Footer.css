@@ -1,0 +1,33 @@
+@keyframes footer {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animated-footer {
+    animation-name: footer;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+}
+
+.logo-name.animated {
+    animation-name: bounce;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+  }
+  
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
