@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import { AuthContext } from '../../Provider/AuthProvider';
+import { BiLogInCircle } from "react-icons/bi";
 
 const Navbar = () => {
+    const { user, loggedOut } = useContext(AuthContext);
+
+    const handleLogout = () =>{
+        loggedOut()
+        .then( () => {
+
+        })
+    }
     const navItems = <>
 
         <li><Link to={'/'}>Home</Link></li>
         <li><Link>Instructor</Link></li>
         <li><Link to={'/classes'}>Classes</Link></li>
-        <li><Link>Drashbord</Link></li>
-        <li><Link to={'/login'}>Log In</Link></li>
-        <li><Link to={'/register'}>Register</Link></li>
-        
+
+
+        {
+            user ? <>
+
+                <li><Link>Drashbord</Link></li>
+            </> :
+
+                <>
+                    <li><Link to={'/login'}>Log In</Link></li>
+                    <li><Link to={'/register'}>Register</Link></li>
+                </>
+        }
     </>
     return (
         <div className="navbar fixed z-10 bg-opacity-40 container bg-black text-white">
@@ -31,13 +50,22 @@ const Navbar = () => {
                     {navItems}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="sm:navbar-end ">
                 <div className="avatar">
-                    <div className="w-10 rounded-full">
+                    {
+                        user && <>
+                        <div className="w-10 rounded-full ">
                         <img src="https://media.istockphoto.com/id/1485546774/photo/bald-man-smiling-at-camera-standing-with-arms-crossed.webp?b=1&s=170667a&w=0&k=20&c=c2rsC66nJQAjkN6vCkhyB0vLHUiZhJSACMCBVF9HJJs=" />
                     </div>
+                    <div className=''>
+                        <button onClick={handleLogout} className="btn btn-active btn-ghost"><BiLogInCircle /></button>
+                    </div>
+                        </>
+                    }
+
                 </div>
             </div>
+
         </div>
     );
 };

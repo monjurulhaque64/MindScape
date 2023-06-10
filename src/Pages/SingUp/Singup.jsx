@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 
 const Singup = () => {
     const {register,handleSubmit,formState: { errors }, watch, reset} = useForm();
+    const {createUser} = useContext(AuthContext);
 
     const [showPassword, setShowPassword] = useState(false);
 
     const onSubmit = (data) => {
         console.log(data)
+        createUser(data.email , data.password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser)
+        })
         reset(); 
       };
 

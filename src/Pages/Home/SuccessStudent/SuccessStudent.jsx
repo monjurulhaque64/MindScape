@@ -45,7 +45,7 @@ export default function App() {
             heading={`Meet Our ${currentYear} Successful Students`}
             subHeading={"Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle."}
             ></SectionTitle>
-            <div className="wrapper ">
+            <div className="wrapper lg:w-10">
                 <div className="scene">
                     <div className="carousel keen-slider" ref={sliderRef}>
                         <div className="carousel__cell number-slide1 "><img className='w-12/12' src={stuImg1} alt="" /></div>
