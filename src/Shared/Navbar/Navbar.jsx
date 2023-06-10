@@ -5,7 +5,7 @@ import './Navbar.css';
 const Navbar = () => {
     const navItems = <>
 
-        <li><Link>Home</Link></li>
+        <li><Link to={'/'}>Home</Link></li>
         <li><Link>Instructor</Link></li>
         <li><Link to={'/classes'}>Classes</Link></li>
         <li><Link>Drashbord</Link></li>
