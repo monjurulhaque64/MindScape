@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
   const {register,handleSubmit,formState: { errors },reset} = useForm();
+  const {loggedUser} =useContext(AuthContext);
   const onSubmit = (data) => {
-    console.log(data);
+    loggedUser(data.email, data.password)
+    .then(result => {
+        const user = result.user;
+    })
     reset(); 
   };
 
