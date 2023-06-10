@@ -1,33 +1,10 @@
-.banner-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #fff;
+@media (max-width: 768px) {
+    .hidden-on-mobile {
+      display: none;
+    }
+    .title{
+        width: 180px;
+        font-size: medium;
+        margin: 10px;
+    }
   }
-  
-  .banner-content h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .banner-content p {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-  
-  .banner-button {
-    background-color: #f0f0f0;
-    color: #333;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .banner-button:hover {
-    background-color: #ddd;
-  }
-  
