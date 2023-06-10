@@ -3,7 +3,6 @@ import React from 'react';
 const PopuerlCard = ({ classData }) => {
   const { name } = classData;
   return (
-    <div>
       <div className="card w-96 bg-base-100 shadow-xl">
         <figure>
           <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" />
@@ -11,7 +10,7 @@ const PopuerlCard = ({ classData }) => {
         <div className="card-body">
           <h2 className="card-title">
             {name}
-            <div className="badge badge-secondary">NEW</div>
+            <div className="badge badge-secondary text-white bg-blue-500">POPULER</div>
           </h2>
           <p>If a dog chews shoes whose shoes does he choose?</p>
           <div className="card-actions justify-end">
@@ -20,7 +19,6 @@ const PopuerlCard = ({ classData }) => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
