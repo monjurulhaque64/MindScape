@@ -20,9 +20,9 @@ const PopularClass = () => {
     console.log(popular)
 
     return (
-        <div>
+        <div className='mx-auto'>
             <SectionTitle heading="Popular Classes" subHeading="Believe you can and you're halfway there." />
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 my-10'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-2 my-10  mx-auto'>
                 {popular.map((classItem) => (
           <PopuerlCard key={classItem.id} classData={classItem} />
         ))}
