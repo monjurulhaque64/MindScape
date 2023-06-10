@@ -2,15 +2,15 @@
     {
         "id": 1,
         "image": "image1.jpg",
-        "name": "Yoga for Beginners",
+        "name": "music",
         "instructorName": "Jennifer Smith",
-        "availableSeats": 5,
+        "availableSeats": 0,
         "price": 29.99
     },
     {
         "id": 2,
         "image": "image1.jpg",
-        "name": "Beginners",
+        "name": "gitter",
         "instructorName": "Jennifer Smith",
         "availableSeats": 7,
         "price": 29.99
@@ -60,7 +60,7 @@
         "image": "image1.jpg",
         "name": "Yoga for Beginners",
         "instructorName": "Jennifer Smith",
-        "availableSeats": 10,
+        "availableSeats": 0,
         "price": 29.99
     }
         
