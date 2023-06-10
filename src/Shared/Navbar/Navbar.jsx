@@ -10,7 +10,7 @@ const Navbar = () => {
         <li><Link to={'/classes'}>Classes</Link></li>
         <li><Link>Drashbord</Link></li>
         <li><Link to={'/login'}>Log In</Link></li>
-        <li><Link>Register</Link></li>
+        <li><Link to={'/register'}>Register</Link></li>
         
     </>
     return (

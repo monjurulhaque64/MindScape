@@ -5,6 +5,7 @@ import Main from "../Layouts/Main";
 import Home from "../Pages/Home/Home/Home";
 import Classes from "../Pages/Classes/Classes";
 import Login from "../Pages/Login/Login";
+import Singup from "../Pages/SingUp/Singup";
 
   const router = createBrowserRouter([
     {
@@ -22,7 +23,11 @@ import Login from "../Pages/Login/Login";
         {
             path: '/login',
             element: <Login></Login>
-        }
+        },
+        {
+          path: '/register',
+          element: <Singup></Singup>
+      }
       ]
     },
   ]);

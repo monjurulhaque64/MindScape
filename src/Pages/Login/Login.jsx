@@ -1,17 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { FaGoogle } from 'react-icons/fa';
+import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
-  const {register,handleSubmit,formState: { errors },reset} = useForm();
-  const {loggedUser} =useContext(AuthContext);
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const { loggedUser } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+
   const onSubmit = (data) => {
     loggedUser(data.email, data.password)
-    .then(result => {
+      .then((result) => {
         const user = result.user;
-    })
-    reset(); 
+      });
+    reset();
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -34,13 +41,28 @@ const Login = () => {
               </div>
               <div className="mb-6">
                 <label className="block text-gray-700 font-bold mb-2">Password</label>
-                <input
-                  type="password"
-                  name="password"
-                  {...register('password', { required: true })}
-                  className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-purple-500"
-                  placeholder="Enter your password"
-                />
+                <div className="relative">
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    name="password"
+                    {...register('password', { required: true })}
+                    className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-purple-500"
+                    placeholder="Enter your password"
+                  />
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
+                    {showPassword ? (
+                      <FaEyeSlash
+                        className="text-gray-400 hover:text-gray-600"
+                        onClick={togglePasswordVisibility}
+                      />
+                    ) : (
+                      <FaEye
+                        className="text-gray-400 hover:text-gray-600"
+                        onClick={togglePasswordVisibility}
+                      />
+                    )}
+                  </div>
+                </div>
                 {errors.password && <span className="text-red-600">Password is required</span>}
               </div>
               <div className="flex justify-center">
@@ -53,9 +75,9 @@ const Login = () => {
             </form>
             <p className="mt-4 text-sm text-center text-gray-600">
               Don't have an account?{' '}
-              <a className="text-purple-500 hover:underline" href="/register">
+              <Link to={'/register'}><a className="text-purple-500 hover:underline" href="">
                 Register here
-              </a>
+              </a></Link>
             </p>
             <div className="divider">OR</div>
             <div className="flex justify-center">
