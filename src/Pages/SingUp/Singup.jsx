@@ -52,7 +52,11 @@ const Singup = () => {
                   <input
                     type={showPassword ? 'text' : 'password'}
                     name="password"
-                    {...register('password', { required: true })}
+                    {...register('password', {
+                      required: true,
+                      minLength: 6,
+                      pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.*[0-9]).*$/,
+                    })}
                     className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-purple-500"
                     placeholder="Enter your password"
                   />
@@ -70,7 +74,17 @@ const Singup = () => {
                     )}
                   </div>
                 </div>
-                {errors.password && <span className="text-red-600">Password is required</span>}
+                {errors.password?.type === 'required' && (
+                  <span className="text-red-600">Password is required</span>
+                )}
+                {errors.password?.type === 'minLength' && (
+                  <span className="text-red-600">Password should be at least 6 characters long</span>
+                )}
+                {errors.password?.type === 'pattern' && (
+                  <span className="text-red-600">
+                    Password should contain at least one capital letter, one special character, and one digit
+                  </span>
+                )}
               </div>
               <div className="mb-6">
                 <label className="block text-gray-700 font-bold mb-2">Confirm Password</label>
