@@ -11,6 +11,7 @@ const Footer = () => {
             logoElement.classList.remove('animated');
         });
     }, []);
+    const currentYear = new Date().getFullYear();
     return (
         <footer>
             <div className="footer p-10 bg-base-300 text-base-content">
@@ -42,7 +43,7 @@ const Footer = () => {
             </div>
             <div className="footer footer-center p-4 bg-base-300 text-base-content animated-footer">
                 <div>
-                    <p>Copyright © 2023 - All right reserved by MindScape Organatization</p>
+                    <p>Copyright © {currentYear} - All right reserved by MindScape Organatization</p>
                     
                 </div>
             </div>
