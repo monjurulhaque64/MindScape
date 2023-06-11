@@ -1,13 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 
 const Singup = () => {
     const {register,handleSubmit,formState: { errors }, watch, reset} = useForm();
-    const {createUser} = useContext(AuthContext);
+    const {createUser, updateUserProfile, singInGoogle} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -17,9 +19,28 @@ const Singup = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser)
+            updateUserProfile(data.name , data.photo)
+            .then(() => {
+              navigate('/')
+            })
+            .catch(error => console.log(error))
         })
         reset(); 
       };
+
+      const handleGoogle = () =>{
+        const provider = new GoogleAuthProvider();
+        singInGoogle(provider)
+        .then(result => {
+            const logedWithGoogle = result;
+            navigate('/')
+        })
+        .catch(error=>{
+            console.log(error)
+            setError(error.message)
+        })
+    
+    }
 
       const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -151,7 +172,7 @@ const Singup = () => {
               </p>
               <div className="divider">OR</div>
               <div className="flex justify-center">
-                <button className="btn btn-circle btn-outline item hover:bg-purple-600">
+                <button onClick={handleGoogle} className="btn btn-circle btn-outline item hover:bg-purple-600">
                   <FaGoogle></FaGoogle>
                 </button>
               </div>

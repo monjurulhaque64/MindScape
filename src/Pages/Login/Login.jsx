@@ -3,10 +3,11 @@ import { useForm } from 'react-hook-form';
 import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
-  const { loggedUser } = useContext(AuthContext);
+  const { loggedUser , singInGoogle} = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
@@ -24,6 +25,20 @@ const Login = () => {
     navigate(from, { replace: true });
     reset();
   };
+
+  const handleGoogle = () =>{
+    const provider = new GoogleAuthProvider();
+    singInGoogle(provider)
+    .then(result => {
+        const logedWithGoogle = result;
+        navigate(from, {replace: true})
+    })
+    .catch(error=>{
+        console.log(error)
+        setError(error.message)
+    })
+
+}
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -89,7 +104,7 @@ const Login = () => {
             </p>
             <div className="divider">OR</div>
             <div className="flex justify-center">
-              <button className="btn btn-circle btn-outline item hover:bg-purple-600">
+              <button onClick={handleGoogle} className="btn btn-circle btn-outline item hover:bg-purple-600">
                 <FaGoogle></FaGoogle>
               </button>
             </div>

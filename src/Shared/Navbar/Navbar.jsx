@@ -6,6 +6,7 @@ import { BiLogInCircle } from "react-icons/bi";
 
 const Navbar = () => {
     const { user, loggedOut } = useContext(AuthContext);
+    console.log(user?.photoURL)
 
     const handleLogout = () =>{
         loggedOut()
@@ -55,7 +56,7 @@ const Navbar = () => {
                     {
                         user && <>
                         <div className="w-10 rounded-full ">
-                        <img src="https://media.istockphoto.com/id/1485546774/photo/bald-man-smiling-at-camera-standing-with-arms-crossed.webp?b=1&s=170667a&w=0&k=20&c=c2rsC66nJQAjkN6vCkhyB0vLHUiZhJSACMCBVF9HJJs=" />
+                        <img src={user?.photoURL} />
                     </div>
                     <div className=''>
                         <button onClick={handleLogout} className="btn btn-active btn-ghost"><BiLogInCircle /></button>
