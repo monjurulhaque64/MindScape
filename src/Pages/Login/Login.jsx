@@ -2,12 +2,18 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../Provider/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const { loggedUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.pathname || '/';
+
 
   const onSubmit = (data) => {
     loggedUser(data.email, data.password)
@@ -15,6 +21,7 @@ const Login = () => {
         const user = result.user;
         console.log(user)
       });
+    navigate(from, { replace: true });
     reset();
   };
 
