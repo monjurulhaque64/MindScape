@@ -21,6 +21,7 @@
     "react-hook-form": "^7.44.3",
     "react-icons": "^4.9.0",
     "react-id-swiper": "^4.0.0",
+    "react-paginate": "^8.2.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.12.1",
     "react-spring": "^9.7.1",

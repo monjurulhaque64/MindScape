@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import SectionTitle from '../../Compo/SectionTitle/SctionTitle';
 import PopuerlCard from './PopulerCard/PopuerlCard';
+import useClasses from '../../Hooks/useClasses';
 
 const PopularClass = () => {
-    const [popularClasses, setPopularClasses] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:5000/classes')
-            .then((res) => res.json())
-            .then((data) => {
-                setPopularClasses(data);
-            });
-    }, []);
-    const popular = popularClasses
+  const [classes] = useClasses();
+    const popular = classes
         .sort((a, b) => b.availableSeats - a.availableSeats)
         .slice(0, 6);
 
