@@ -7,6 +7,8 @@ import Classes from "../Pages/Classes/Classes";
 import Login from "../Pages/Login/Login";
 import Singup from "../Pages/SingUp/Singup";
 import PrivetRoute from "./PrivetRoute";
+import Dashboard from "../Layouts/Dashboard";
+import MySelectedClasses from "../Pages/Dashboard/MySelectedClasses/MySelectedClasses";
 
   const router = createBrowserRouter([
     {
@@ -31,6 +33,16 @@ import PrivetRoute from "./PrivetRoute";
       }
       ]
     },
+    {
+      path: 'dashboard',
+      element: <Dashboard></Dashboard>,
+      children: [
+        {
+          path: 'myselectedclass',
+          element: <MySelectedClasses></MySelectedClasses>
+        }
+      ]
+    }
   ]);
 
   export default router;

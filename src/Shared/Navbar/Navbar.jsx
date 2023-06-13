@@ -24,7 +24,7 @@ const Navbar = () => {
         {
             user ? <>
 
-                <li><Link>Drashbord</Link></li>
+                <li><Link to={'dashboard'}>Drashbord</Link></li>
             </> :
 
                 <>
