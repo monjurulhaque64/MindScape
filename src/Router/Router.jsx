@@ -35,7 +35,7 @@ import MySelectedClasses from "../Pages/Dashboard/MySelectedClasses/MySelectedCl
     },
     {
       path: 'dashboard',
-      element: <Dashboard></Dashboard>,
+      element: <PrivetRoute><Dashboard></Dashboard></PrivetRoute>,
       children: [
         {
           path: 'myselectedclass',
