@@ -9,6 +9,7 @@ import Singup from "../Pages/SingUp/Singup";
 import PrivetRoute from "./PrivetRoute";
 import Dashboard from "../Layouts/Dashboard";
 import MySelectedClasses from "../Pages/Dashboard/MySelectedClasses/MySelectedClasses";
+import ManageUsers from "../Pages/Dashboard/manageUsers/ManageUsers";
 
   const router = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ import MySelectedClasses from "../Pages/Dashboard/MySelectedClasses/MySelectedCl
         {
           path: 'myselectedclass',
           element: <MySelectedClasses></MySelectedClasses>
+        },
+        {
+          path:'allusers',
+          element: <ManageUsers></ManageUsers>
         }
       ]
     }

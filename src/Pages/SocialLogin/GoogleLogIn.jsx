@@ -1,7 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
-import Swal from 'sweetalert2';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -28,15 +27,9 @@ const GoogleLogIn = () => {
                     body: JSON.stringify(saveUser)
                   })
                     .then(res => res.json())
-                    .then(data => {
-                      if (data.insertedId) {
-                        navigate(from, {replace: true})
-                      }
+                    .then(() => {navigate(from, {replace: true})
                     })
-
             })
-
-
     }
     return (
         <button onClick={handleGoogle} className="btn btn-circle btn-outline item hover:bg-purple-600">
