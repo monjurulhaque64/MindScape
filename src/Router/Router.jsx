@@ -21,7 +21,7 @@ import MySelectedClasses from "../Pages/Dashboard/MySelectedClasses/MySelectedCl
         },
         {
             path: '/classes',
-            element: <PrivetRoute><Classes></Classes></PrivetRoute>
+            element: <Classes></Classes>
         },
         {
             path: '/login',
