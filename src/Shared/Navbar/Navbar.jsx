@@ -6,13 +6,11 @@ import { BiLogInCircle } from "react-icons/bi";
 
 const Navbar = () => {
     const { user, loggedOut } = useContext(AuthContext);
-    console.log(user?.photoURL)
-
-    const handleLogout = () =>{
+    const handleLogout = () => {
         loggedOut()
-        .then( () => {
+            .then(() => {
 
-        })
+            })
     }
     const navItems = <>
 
@@ -51,20 +49,24 @@ const Navbar = () => {
                     {navItems}
                 </ul>
             </div>
-            <div className="sm:navbar-end ">
-                <div className="avatar">
-                    {
-                        user && <>
-                        <div className="w-10 rounded-full ">
-                        <img src={user?.photoURL} />
-                    </div>
-                    <div className=''>
-                        <button onClick={handleLogout} className="btn btn-active btn-ghost"><BiLogInCircle /></button>
-                    </div>
-                        </>
-                    }
+            <div className="sm:navbar-end justify-end sm:ml-20 ">
 
-                </div>
+                {
+                    user && <>
+                        <div className='flex ml-10'>
+                            <div className='avatar'>
+                                <div className="w-10 rounded-full sm">
+                                    <img src={user?.photoURL} />
+                                </div>
+                            </div>
+                            <div className=''>
+                                <button onClick={handleLogout} className="btn btn-active btn-ghost ml-2"><BiLogInCircle /></button>
+                            </div>
+                        </div>
+                    </>
+                }
+
+                {/* </div> */}
             </div>
 
         </div>

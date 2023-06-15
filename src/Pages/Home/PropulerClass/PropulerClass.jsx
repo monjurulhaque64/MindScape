@@ -10,8 +10,6 @@ const PopularClass = () => {
         .slice(0, 6);
 
 
-    console.log(popular)
-
     return (
         <div className='mx-auto'>
             <SectionTitle heading="Popular Classes" subHeading="Believe you can and you're halfway there." />

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import SectionTitle from '../../Compo/SectionTitle/SctionTitle';
 import Swal from 'sweetalert2';
 
 const ManageUsers = () => {
+  const [searchEmail, setSearchEmail] = useState('');
   const { data: users = [], refetch } = useQuery(['users'], async () => {
     const res = await fetch('http://localhost:5000/users');
     return res.json();
@@ -65,6 +66,18 @@ const ManageUsers = () => {
       });
   };
 
+  const handleSearch = () => {
+    refetch();
+  };
+
+  const handleSearchInputChange = e => {
+    setSearchEmail(e.target.value);
+  };
+
+  const filteredUsers = users.filter(user =>
+    user.email && user.email.toLowerCase().includes(searchEmail.toLowerCase())
+  );
+
   return (
     <div className='w-full'>
       <SectionTitle heading={'All users'} subHeading={'Here All MindScape Member'}></SectionTitle>
@@ -72,6 +85,18 @@ const ManageUsers = () => {
         <h3>Total Users: {users.length}</h3>
         <h3>Total Instructors: {instructor.length}</h3>
         <h3>Total Admin: {admin.length}</h3>
+      </div>
+      <div className='flex justify-center mb-4'>
+        <input
+          type='text'
+          placeholder='Search by email'
+          value={searchEmail}
+          onChange={handleSearchInputChange}
+          className='border border-gray-400 px-4 py-2 rounded-md'
+        />
+        <button onClick={handleSearch} className='btn btn-primary ml-4'>
+          Search
+        </button>
       </div>
       <div className='overflow-x-auto'>
         <table className='table'>
@@ -86,7 +111,7 @@ const ManageUsers = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
+            {filteredUsers.map((user, index) => (
               <tr key={user._id}>
                 <th>{index + 1}</th>
                 <td>
@@ -106,7 +131,9 @@ const ManageUsers = () => {
                 <th>
                   {user.userRole === 'student' && (
                     <div>
-                      <button onClick={() => handleMakeInstructor(user)}  className='btn btn-info'>Instructor</button>
+                      <button onClick={() => handleMakeInstructor(user)} className='btn btn-info'>
+                        Instructor
+                      </button>
                       <button onClick={() => handleMakeAdmin(user)} className='btn btn-success ml-2'>
                         Admin
                       </button>

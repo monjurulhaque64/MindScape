@@ -55,7 +55,7 @@ const Singup = () => {
     setShowPassword(!showPassword);
   };
   return (
-    <div className="p-24">
+    <div className="p-24 mb-10">
       <div className="flex justify-center items-center h-screen ">
         <div className="w-full max-w-md">
           <div className="bg-white rounded-lg shadow-lg p-8">
