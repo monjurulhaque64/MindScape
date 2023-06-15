@@ -2,8 +2,10 @@ import React from 'react';
 import SectionTitle from '../../Compo/SectionTitle/SctionTitle';
 import { FcFeedback } from 'react-icons/fc';
 import { FaPen } from 'react-icons/fa';
+import useInstructorClasses from '../../Hooks/useInstractorClass';
 
 const ManageInstractorClass = () => {
+    const [instructorClasses , refetch] = useInstructorClasses();
     return (
         <div className='w-full ml-4'>
             <SectionTitle heading={"Manage All Class"}></SectionTitle>
