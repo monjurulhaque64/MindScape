@@ -54,7 +54,7 @@ const ClassesCard = ({ classItem, isEnrollDisabled }) => {
         <div>
             {isEnrollDisabled ? (
                 <div className=''>
-                    <div className="card card-compact w-[350px] lg:w-96  bg-red-400 shadow-xl">
+                    <div className="card card-compact h-[450px] w-[350px] lg:w-96  bg-red-400 shadow-xl">
                         <figure>
                             <img src={image} alt={name} />
                         </figure>
@@ -70,7 +70,7 @@ const ClassesCard = ({ classItem, isEnrollDisabled }) => {
                     </div>
                 </div>
             ) : (
-                <div className="card card-compact w-[350px] lg:w-96 bg-base-100 shadow-xl">
+                <div className="card card-compact h-[450px] w-[350px] lg:w-96 bg-base-100 shadow-xl">
                     <figure>
                         <img src={image} alt={name} />
                     </figure>

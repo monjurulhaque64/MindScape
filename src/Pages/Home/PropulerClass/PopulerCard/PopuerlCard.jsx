@@ -59,7 +59,7 @@ const PopuerlCard = ({ classData }) => {
 
 
   return (
-    <div className="card w-[350px] lg:w-96 bg-base-100 shadow-xl">
+    <div className="card w-[350px] h-[450px] lg:w-96 bg-base-100 shadow-xl">
       <figure>
         <img src={image} alt={name} />
       </figure>

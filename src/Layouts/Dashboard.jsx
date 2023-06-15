@@ -6,8 +6,8 @@ import useAdmin from '../Pages/Hooks/useAdmin';
 import useInstructor from '../Pages/Hooks/useInstructor';
 
 const Dashboard = () => {
-  const isAdmin = useAdmin();
-  const isInstructor = useInstructor();
+  const {isAdmin} = useAdmin();
+  const {isInstructor} = useInstructor();
 
   return (
     <div className='container mx-auto'>
@@ -31,8 +31,8 @@ const Dashboard = () => {
               ) : isInstructor ? (
                 <>
                   <li><NavLink to={'/dashboard/instructorhome'}><FaHome></FaHome>Instructor Home</NavLink></li>
-                  <li><NavLink to={'/dashboard/myselectedclass'}><FcBookmark></FcBookmark>Selected Class</NavLink></li>
-                  <li><NavLink to={'/dashboard/myenrollclass'}><FcPaid></FcPaid>Enrolled Classes</NavLink></li>
+                  <li><NavLink to={'/dashboard/manageinstructorclass'}><FcBookmark></FcBookmark>Manage Classes</NavLink></li>
+                  <li><NavLink to={'/dashboard/addclass'}><FcPaid></FcPaid>Add Class</NavLink></li>
                   <li><NavLink to={'/dashboard/paymenthistory'}><FaWallet></FaWallet>Payment History</NavLink></li>
                 </>
               ) : (
