@@ -10,6 +10,9 @@ import PrivetRoute from "./PrivetRoute";
 import Dashboard from "../Layouts/Dashboard";
 import MySelectedClasses from "../Pages/Dashboard/MySelectedClasses/MySelectedClasses";
 import ManageUsers from "../Pages/Dashboard/manageUsers/ManageUsers";
+import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
+import InstructorHome from "../Pages/Dashboard/InstructorHome/InstructorHome";
+import StudentHome from "../Pages/Dashboard/StudentHome/StudentHome";
 
   const router = createBrowserRouter([
     {
@@ -45,7 +48,19 @@ import ManageUsers from "../Pages/Dashboard/manageUsers/ManageUsers";
         {
           path:'allusers',
           element: <ManageUsers></ManageUsers>
-        }
+        },
+        {
+          path:'adminhome',
+          element:<AdminHome></AdminHome>
+        },
+        {
+          path:'instructorhome',
+          element:<InstructorHome></InstructorHome>
+        },
+      {
+        path: 'myhome',
+        element:<StudentHome></StudentHome>
+      }
       ]
     }
   ]);

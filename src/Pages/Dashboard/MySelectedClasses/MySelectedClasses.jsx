@@ -6,48 +6,51 @@ import Swal from 'sweetalert2';
 
 const MySelectedClasses = () => {
     const [cart, refetch] = useCart();
-    const total = cart.reduce((sum, item) => {
-        return item.price + sum;
-    }, 0);
+    console.log(cart?.data);
+    const total = Array.isArray(cart?.data)
+        ? cart.data.reduce((sum, item) => {
+              return item.price + sum;
+          }, 0)
+        : 0;
 
     const handleDelete = item => {
         Swal.fire({
-          title: 'Are you sure?',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            console.log(item._id)
-            fetch(`http://localhost:5000/enrolls/${item._id}`, {
-              method: 'DELETE'
-            })
-              .then(res => res.json())
-              .then(data => {
-                console.log(data); // Log the response data to check its format
-                if (data.deletedCount > 0) {
-                  refetch();
-                  Swal.fire(
-                    'Deleted!',
-                    'Your Class has been deleted.',
-                    'success'
-                  )
-                }
-              })
-              .catch(error => {
-                console.log(error); // Log any error that occurs during the request
-              });
-          }
+            title: 'Are you sure?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(result => {
+            if (result.isConfirmed) {
+                console.log(item._id);
+                fetch(`http://localhost:5000/enrolls/${item._id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'Your Class has been deleted.',
+                                'success'
+                            );
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }
         });
-      }
+    };
 
     return (
         <div className='w-full'>
             <SectionTitle heading={"Add more"} subHeading={"My Cart"}></SectionTitle>
             <div className='font-bold flex justify-evenly mt-10'>
-                <h3>Total Selected Class: {cart.length}</h3>
+                <h3>Total Selected Class: {cart.data?.length}</h3>
                 <h3>Total Price: {total}</h3>
             </div>
             <div className="overflow-x-auto mt-10 mb-10 ml-5">
@@ -62,8 +65,8 @@ const MySelectedClasses = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {cart.length > 0 ? (
-                            cart.map((item, index) => (
+                        {cart.data?.length > 0 ? (
+                            cart.data.map((item, index) => (
                                 <tr key={item._id}>
                                     <td>{index + 1}</td>
                                     <td>

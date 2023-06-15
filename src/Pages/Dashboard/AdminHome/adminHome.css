@@ -1,0 +1,54 @@
+.admin-info {
+    box-sizing: border-box;
+
+    width: 622px;
+    height: 469px;
+    left: 305px;
+    top: 299px;
+
+    background: #b5b3f7;
+    border-right: 3px solid #edd5b1;
+}
+
+.admin-details {
+    box-sizing: border-box;
+
+    width: 622px;
+    height: 469px;
+    left: 305px;
+    top: 299px;
+
+    background: #e1e0f9;
+    border-right: 3px solid #edd5b1;
+}
+
+.admin-image {
+
+    box-sizing: border-box;
+
+    width: 198px;
+    height: 198px;
+    left: 517px;
+    top: 389px;
+
+    background: #FFFFFF;
+    border: 3px solid #0a0a0a;
+    margin: 90px 212px 181px 212px;
+
+}
+
+.title {
+    position: absolute;
+    width: 359px;
+    height: 23px;
+    left: 467px;
+    top: 650px;
+
+    font-family: 'Cinzel';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 43px;
+    color: #151515;
+
+}

@@ -20,9 +20,9 @@ const Singup = () => {
       .then(result => {
         const loggedUser = result.user;
         console.log(loggedUser)
-        updateUserProfile(data.name, data.photo)
+        updateUserProfile(data.displayName, data.photoURL)
           .then(() => {
-            const saveUser = {name: data.name, userPhoto: data.photo , email: data.email, userRole: 'student'}
+            const saveUser = {name: data.displayName, userPhoto: data.photoURL , email: data.email, userRole: 'student'}
             fetch('http://localhost:5000/users', {
               method: 'POST',
               headers:{
@@ -55,7 +55,7 @@ const Singup = () => {
     setShowPassword(!showPassword);
   };
   return (
-    <div className="p-24 mb-10">
+    <div className="p-24 mb-4">
       <div className="flex justify-center items-center h-screen ">
         <div className="w-full max-w-md">
           <div className="bg-white rounded-lg shadow-lg p-8">
@@ -65,12 +65,12 @@ const Singup = () => {
                 <label className="block text-gray-700 font-bold mb-2">Name</label>
                 <input
                   type="text"
-                  name="name"
-                  {...register('name', { required: true })}
+                  name="displayName"
+                  {...register('displayName', { required: true })}
                   className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-purple-500"
                   placeholder="Enter your name"
                 />
-                {errors.name && <span className="text-red-600">Name is required</span>}
+                {errors.displayName && <span className="text-red-600">Name is required</span>}
               </div>
               <div className="mb-4">
                 <label className="block text-gray-700 font-bold mb-2">Email</label>
@@ -158,12 +158,12 @@ const Singup = () => {
                 <label className="block text-gray-700 font-bold mb-2">Photo URL</label>
                 <input
                   type="text"
-                  name="photo"
-                  {...register('photo', { required: true })}
+                  name="photoURL"
+                  {...register('photoURL', { required: true })}
                   className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-purple-500"
                   placeholder="Enter your Photo URL"
                 />
-                {errors.photo && <span className="text-red-600">Photo  is required</span>}
+                {errors.photoURL && <span className="text-red-600">Photo  is required</span>}
               </div>
               <div className="flex justify-center">
                 <input

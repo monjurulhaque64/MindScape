@@ -23,14 +23,14 @@ const Dashboard = () => {
             <ul className="menu p-4 w-80 h-full bg-blue-500 text-base-content font-semibold">
               {isAdmin ? (
                 <>
-                  <li><NavLink to={'/dashboard/myhome'}><FaHome></FaHome>Admin Home</NavLink></li>
+                  <li><NavLink to={'/dashboard/adminhome'}><FaHome></FaHome>Admin Home</NavLink></li>
                   <li><NavLink to={'/dashboard/myselectedclass'}><FaChalkboard></FaChalkboard>Manage Classes</NavLink></li>
                   <li><NavLink to={'/dashboard/allUsers'}><FaUserCog></FaUserCog>Manage Users</NavLink></li>
                   <li><NavLink to={'/dashboard/paymenthistory'}><FaWallet></FaWallet>Payment History</NavLink></li>
                 </>
               ) : isInstructor ? (
                 <>
-                  <li><NavLink to={'/dashboard/myhome'}><FaHome></FaHome>Instructor Home</NavLink></li>
+                  <li><NavLink to={'/dashboard/instructorhome'}><FaHome></FaHome>Instructor Home</NavLink></li>
                   <li><NavLink to={'/dashboard/myselectedclass'}><FcBookmark></FcBookmark>Selected Class</NavLink></li>
                   <li><NavLink to={'/dashboard/myenrollclass'}><FcPaid></FcPaid>Enrolled Classes</NavLink></li>
                   <li><NavLink to={'/dashboard/paymenthistory'}><FaWallet></FaWallet>Payment History</NavLink></li>
