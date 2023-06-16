@@ -17,6 +17,7 @@ import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import ManageInstractorClass from "../Pages/Dashboard/ManageInstractorClass/ManageInstractorClass";
+import UpdateClass from "../Pages/Dashboard/UpdateClass/UpdateClass";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,11 @@ const router = createBrowserRouter([
       {
         path: 'manageinstructorclass',
         element: <InstructorRoute><ManageInstractorClass></ManageInstractorClass></InstructorRoute>
+      },
+      {
+        path: 'manageinstructorclass/update/:id',
+        element: <InstructorRoute><UpdateClass></UpdateClass></InstructorRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/classes/instructor/${params.id}`)
       }
     ]
   }
