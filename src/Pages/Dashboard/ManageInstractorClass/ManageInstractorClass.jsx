@@ -1,16 +1,26 @@
 import React from 'react';
-
 import SectionTitle from '../../Compo/SectionTitle/SctionTitle';
 import { FcFeedback } from 'react-icons/fc';
 import { FaPen } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import useInstructorClasses from '../../Hooks/useInstractorClass';
+import Modal from 'react-modal';
 
-const ManageInstractorClass = () => {
+const ManageInstructorClass = () => {
   const [instructorClasses, refetch] = useInstructorClasses();
   const classData = instructorClasses?.data;
-  
+  console.log(classData);
 
+  // Track the currently selected class for feedback
+  const [selectedClass, setSelectedClass] = React.useState(null);
+
+  const openModal = (item) => {
+    setSelectedClass(item);
+  };
+
+  const closeModal = () => {
+    setSelectedClass(null);
+  };
 
   return (
     <div className='w-full ml-4'>
@@ -49,13 +59,14 @@ const ManageInstractorClass = () => {
                 <td>{item.student}</td>
                 <td>{item.status}</td>
                 <th>
-                  <Link to={`update/${item._id}`} ><button
-                    className="btn btn-outline btn-success text-2xl" >
-                    <FaPen />
-                  </button></Link>
+                  <Link to={`update/${item._id}`} >
+                    <button className="btn btn-outline btn-success text-2xl" >
+                      <FaPen />
+                    </button>
+                  </Link>
                 </th>
                 <th>
-                  <button onClick={()=>window.my_modal_1.showModal()} className="btn btn-outline btn-success text-2xl">
+                  <button className="btn btn-outline btn-success text-2xl" onClick={() => openModal(item)}>
                     <FcFeedback />
                   </button>
                 </th>
@@ -64,19 +75,25 @@ const ManageInstractorClass = () => {
           </tbody>
         </table>
       </div>
+
       {/* Feedback modal */}
-      
-        <dialog id="my_modal_1" className="modal">
-          <form method="dialog" className="modal-box">
-            <h3 className="font-bold text-lg">Hello!</h3>
-            <p className="py-4">Press ESC key or click the button below to close</p>
-            <div className="modal-action">
-              <button className="btn">Close</button>
-            </div>
-          </form>
-        </dialog>
+      <Modal
+        isOpen={selectedClass !== null}
+        onRequestClose={closeModal}
+        contentLabel="Feedback Modal"
+      >
+        {selectedClass && (
+          <div>
+            <h3 className="text-xl font-bold text-center text-blue-400">{selectedClass.name}</h3>
+            <p className="py-4"><span className='text-lg font-semibold text-blue-400 '>Admin FeedBack:</span> {selectedClass.feedback}</p>
+            <button onClick={closeModal} className="btn">
+              Close
+            </button>
+          </div>
+        )}
+      </Modal>
     </div>
   );
 };
 
-export default ManageInstractorClass;
+export default ManageInstructorClass;
