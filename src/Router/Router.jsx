@@ -21,6 +21,7 @@ import UpdateClass from "../Pages/Dashboard/UpdateClass/UpdateClass";
 import Instracutor from "../Pages/Instratur/Instracutor";
 import ManageClasses from "../Pages/Dashboard/ManageClass/ManageClasses";
 import Feedback from "../Pages/Dashboard/Feedback/Feedback";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +73,11 @@ const router = createBrowserRouter([
       {
         path: 'myhome',
         element: <StudentHome></StudentHome>
+      },
+      {
+        path: 'myselectedclass/payment/:id',
+        element: <Payment></Payment>,
+        loader: ({ params }) => fetch(`http://localhost:5000/enrolls/${params.id}`)
       },
       {
         path: 'addclass',

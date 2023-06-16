@@ -9,9 +9,7 @@ import Modal from 'react-modal';
 const ManageInstructorClass = () => {
   const [instructorClasses, refetch] = useInstructorClasses();
   const classData = instructorClasses?.data;
-  console.log(classData);
-
-  // Track the currently selected class for feedback
+  
   const [selectedClass, setSelectedClass] = React.useState(null);
 
   const openModal = (item) => {

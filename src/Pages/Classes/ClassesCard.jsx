@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const ClassesCard = ({ classItem, isEnrollDisabled }) => {
-    const { name, instructorName, availableSeats, price, image, _id } = classItem;
+    const { name, instructorEmail, instructorName, availableSeats, price, image, _id } = classItem;
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -12,7 +12,7 @@ const ClassesCard = ({ classItem, isEnrollDisabled }) => {
     const handleEnroll = (classItem) => {
         console.log('Enrollment clicked for', classItem);
         if (user && user.email) {
-            const enrollItem = {enrollClassID: _id, name, instructorName, price, image, email: user.email }
+            const enrollItem = {enrollClassID: _id, name, instructorName, instructorEmail, price, image, email: user.email }
             fetch('http://localhost:5000/enrolls', {
                 method: 'POST',
                 headers:{
@@ -22,7 +22,6 @@ const ClassesCard = ({ classItem, isEnrollDisabled }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
                     if (data.insertedId) {
                         Swal.fire({
                             position: 'top-end',

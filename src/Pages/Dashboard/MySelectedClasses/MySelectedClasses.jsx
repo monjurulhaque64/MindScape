@@ -3,14 +3,14 @@ import useCart from '../../Hooks/useCart';
 import SectionTitle from '../../Compo/SectionTitle/SctionTitle';
 import { AiFillCreditCard, AiFillDelete } from "react-icons/ai";
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const MySelectedClasses = () => {
     const [cart, refetch] = useCart();
-    console.log(cart?.data);
     const total = Array.isArray(cart?.data)
         ? cart.data.reduce((sum, item) => {
-              return item.price + sum;
-          }, 0)
+            return item.price + sum;
+        }, 0)
         : 0;
 
     const handleDelete = item => {
@@ -84,9 +84,11 @@ const MySelectedClasses = () => {
                                     <td>{item.instructorName}</td>
                                     <td>$ {item.price}</td>
                                     <td>
-                                        <button className="btn btn-outline btn-success">
-                                            <AiFillCreditCard />
-                                        </button>
+                                        <Link to={{ pathname: `payment/${item._id}` }}>
+                                            <button className="btn btn-outline btn-success">
+                                                <AiFillCreditCard />
+                                            </button>
+                                        </Link>
                                         <button
                                             onClick={() => handleDelete(item)}
                                             className="btn btn-outline btn-warning ml-2"

@@ -15,7 +15,7 @@ const Classes = () => {
   };
 
   const filteredClasses = classes.filter((classItem) =>
-    classItem.name.toLowerCase().includes(searchTerm.toLowerCase())
+    classItem.name.toLowerCase().includes(searchTerm.toLowerCase()) && classItem.status === 'approve'
   );
 
   const pageCount = Math.ceil(filteredClasses.length / classesPerPage);
@@ -76,7 +76,6 @@ const Classes = () => {
             »
           </button>
         </div>
-
       </div>
     </div>
   );
