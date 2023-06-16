@@ -28,8 +28,7 @@ const AddClass = () => {
             if(imgRes.success){
                 const imgURL = imgRes.data.display_url;
                 const {name, instructorName , instructorEmail, availableSeats, price} = data;
-                const classItem = {name, instructorName , instructorEmail, availableSeats, price: parseFloat(price), image:imgURL, student: 0, status:'pending'}
-                console.log(classItem)
+                const classItem = {name, instructorName , instructorEmail, availableSeats: parseFloat(availableSeats) , price: parseFloat(price), image:imgURL, student: 0, status:'pending'}
                 axiosSecure.post('/classes', classItem)
                 .then(data => {
                     if(data.data.insertedId){
