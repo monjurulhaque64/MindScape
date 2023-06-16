@@ -3,12 +3,13 @@ import React from 'react';
 import SectionTitle from '../../Compo/SectionTitle/SctionTitle';
 import { FcFeedback } from 'react-icons/fc';
 import { FaPen } from 'react-icons/fa';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useInstructorClasses from '../../Hooks/useInstractorClass';
 
 const ManageInstractorClass = () => {
   const [instructorClasses, refetch] = useInstructorClasses();
   const classData = instructorClasses?.data;
+  
 
 
   return (
@@ -54,7 +55,7 @@ const ManageInstractorClass = () => {
                   </button></Link>
                 </th>
                 <th>
-                  <button className="btn btn-outline btn-success text-2xl">
+                  <button onClick={()=>window.my_modal_1.showModal()} className="btn btn-outline btn-success text-2xl">
                     <FcFeedback />
                   </button>
                 </th>
@@ -63,6 +64,17 @@ const ManageInstractorClass = () => {
           </tbody>
         </table>
       </div>
+      {/* Feedback modal */}
+      
+        <dialog id="my_modal_1" className="modal">
+          <form method="dialog" className="modal-box">
+            <h3 className="font-bold text-lg">Hello!</h3>
+            <p className="py-4">Press ESC key or click the button below to close</p>
+            <div className="modal-action">
+              <button className="btn">Close</button>
+            </div>
+          </form>
+        </dialog>
     </div>
   );
 };

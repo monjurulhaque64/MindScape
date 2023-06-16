@@ -12,10 +12,7 @@ const UpdateClass = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const classData = useLoaderData();
   const {_id ,name, availableSeats ,price} = classData;
-  console.log(classData)
 
-
-  
 
   const onSubmit = (data) => {
     console.log(data);

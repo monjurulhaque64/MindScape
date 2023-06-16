@@ -18,6 +18,9 @@ import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import ManageInstractorClass from "../Pages/Dashboard/ManageInstractorClass/ManageInstractorClass";
 import UpdateClass from "../Pages/Dashboard/UpdateClass/UpdateClass";
+import Instracutor from "../Pages/Instratur/Instracutor";
+import ManageClasses from "../Pages/Dashboard/ManageClass/ManageClasses";
+import Feedback from "../Pages/Dashboard/Feedback/Feedback";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Singup></Singup>
+      },
+      {
+        path: '/instracutor',
+        element: <Instracutor></Instracutor>
       }
     ]
   },
@@ -78,7 +85,16 @@ const router = createBrowserRouter([
         path: 'manageinstructorclass/update/:id',
         element: <InstructorRoute><UpdateClass></UpdateClass></InstructorRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/classes/instructor/${params.id}`)
-      }
+      },
+      {
+        path: 'manageclass',
+        element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>
+      },
+      {
+        path: 'manageclass/feedback/:id',
+        element: <AdminRoute><Feedback></Feedback></AdminRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/classes/instructor/${params.id}`)
+      },
     ]
   }
 ]);
