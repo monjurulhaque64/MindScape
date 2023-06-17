@@ -9,13 +9,12 @@ const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_PK);
 
 const Payment = () => {
     const enrollData = useLoaderData();
-    console.log(enrollData)
   return (
     <div className='w-full'>
       <SectionTitle heading={'Payment'}></SectionTitle>
       <h2></h2>
       <Elements stripe={stripePromise}>
-        <CheakOutFrom></CheakOutFrom>
+        <CheakOutFrom enrollData={enrollData}></CheakOutFrom>
       </Elements>
     </div>
   );

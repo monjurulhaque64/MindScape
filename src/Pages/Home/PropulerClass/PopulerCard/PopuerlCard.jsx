@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const PopuerlCard = ({ classData }) => {
-  const { name, instructorName, availableSeats, price, image } = classData;
+  const { _id, instructorEmail,  name, instructorName, availableSeats, price, image, student } = classData;
 
   const { user } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -13,13 +13,10 @@ const PopuerlCard = ({ classData }) => {
     const handleEnroll = () => {
       console.log('Enrollment clicked for', classData);
       if (user && user.email) {
-        const enrollItem = {
-          enrollClassID: classData._id,
-          name,
-          instructorName,
-          price,
-          image,
-          email: user.email
+        const enrollItem = {enrollClassID: _id, name, instructorName,
+          availableSeats,
+          student,
+           instructorEmail, price, image, email: user.email, paymentStatus: 'pending'
         };
         fetch('http://localhost:5000/enrolls', {
           method: 'POST',
@@ -67,6 +64,7 @@ const PopuerlCard = ({ classData }) => {
         <h2 className="card-title font-extrabold text-3xl uppercase text-blue-400 justify-center">{name}</h2>
         <p className='text-lg'> Instructor: {instructorName}</p>
         <h3 className='font-semibold'>Available seats: {availableSeats}</h3>
+        <h3 className='font-semibold'>Students: {student}</h3>
         <h3 className='font-semibold'>Price: ${price}</h3>
         <div className="card-actions justify-end">
           <button onClick={ handleEnroll} className="btn btn-outline btn-info">Enroll</button>

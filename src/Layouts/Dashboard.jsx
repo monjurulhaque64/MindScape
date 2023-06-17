@@ -27,14 +27,13 @@ const Dashboard = () => {
                   <li><NavLink to={'/dashboard/adminhome'}><FaHome></FaHome>Admin Home</NavLink></li>
                   <li><NavLink to={'/dashboard/manageclass'}><FaChalkboard></FaChalkboard>Manage Classes</NavLink></li>
                   <li><NavLink to={'/dashboard/allUsers'}><FaUserCog></FaUserCog>Manage Users</NavLink></li>
-                  <li><NavLink to={'/dashboard/paymenthistory'}><FaWallet></FaWallet>Payment History</NavLink></li>
+                  
                 </>
               ) : isInstructor ? (
                 <>
                   <li><NavLink to={'/dashboard/instructorhome'}><FaHome></FaHome>Instructor Home</NavLink></li>
                   <li><NavLink to={'/dashboard/manageinstructorclass'}><FcBookmark></FcBookmark>Manage Classes</NavLink></li>
                   <li><NavLink to={'/dashboard/addclass'}><FcPaid></FcPaid>Add Class</NavLink></li>
-                  <li><NavLink to={'/dashboard/paymenthistory'}><FaWallet></FaWallet>Payment History</NavLink></li>
                 </>
               ) : (
                 <>
