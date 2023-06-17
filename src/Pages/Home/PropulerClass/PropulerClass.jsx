@@ -8,7 +8,7 @@ const PopularClass = () => {
 
     const popular = classes
         .filter((classItem) => classItem.status === 'approve')
-        .sort((a, b) => b.student.length - a.student.length)
+        .sort((a, b) => b.student - a.student)
         .slice(0, 6);
 
 
