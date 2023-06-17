@@ -19,7 +19,7 @@ const GoogleLogIn = () => {
                 console.log(logedUser)
                 const saveUser = {name: logedUser.displayName, userPhoto: logedUser.photoURL , email: logedUser.email, userRole: 'student'}
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://mindscape-server.vercel.app/users', {
                     method: 'POST',
                     headers:{
                       'content-type': 'application/json'

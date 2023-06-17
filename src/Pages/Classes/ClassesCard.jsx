@@ -16,7 +16,7 @@ const ClassesCard = ({ classItem, isEnrollDisabled }) => {
                 availableSeats,
                 student,
                  instructorEmail, price, image, email: user.email, paymentStatus: 'pending' }
-            fetch('http://localhost:5000/enrolls', {
+            fetch('https://mindscape-server.vercel.app/enrolls', {
                 method: 'POST',
                 headers:{
                     'content-type': 'application/json'

@@ -12,14 +12,14 @@ const ManageClasses = () => {
 
 
     const { data: classes = [], refetch } = useQuery(['classes'], async () => {
-        const res = await fetch('http://localhost:5000/classes');
+        const res = await fetch('https://mindscape-server.vercel.app/classes');
         return res.json();
     });
 
 
 
     const handleApprove = classeData => {
-        fetch(`http://localhost:5000/classes/approve/${classeData._id}`, {
+        fetch(`https://mindscape-server.vercel.app/classes/approve/${classeData._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -46,7 +46,7 @@ const ManageClasses = () => {
     };
 
     const handleDeny = classeData => {
-        fetch(`http://localhost:5000/classes/deny/${classeData._id}`, {
+        fetch(`https://mindscape-server.vercel.app/classes/deny/${classeData._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

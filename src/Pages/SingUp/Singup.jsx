@@ -23,7 +23,7 @@ const Singup = () => {
         updateUserProfile(data.displayName, data.photoURL)
           .then(() => {
             const saveUser = {name: data.displayName, userPhoto: data.photoURL , email: data.email, userRole: 'student'}
-            fetch('http://localhost:5000/users', {
+            fetch('https://mindscape-server.vercel.app/users', {
               method: 'POST',
               headers:{
                 'content-type': 'application/json'

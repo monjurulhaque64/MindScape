@@ -25,6 +25,7 @@ import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import MyEnrollClases from "../Pages/Dashboard/MyEnrollClass/MyEnrollClases";
 import GiveRiview from "../Pages/Dashboard/GiveRiview/GiveRiview";
+import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 
 const router = createBrowserRouter([
   {
@@ -92,7 +93,7 @@ const router = createBrowserRouter([
       {
         path: 'myselectedclass/payment/:id',
         element: <Payment></Payment>,
-        loader: ({ params }) => fetch(`http://localhost:5000/enrolls/${params.id}`)
+        loader: ({ params }) => fetch(`https://mindscape-server.vercel.app/enrolls/${params.id}`)
       },
       {
         path: 'addclass',
@@ -105,7 +106,7 @@ const router = createBrowserRouter([
       {
         path: 'manageinstructorclass/update/:id',
         element: <InstructorRoute><UpdateClass></UpdateClass></InstructorRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/classes/instructor/${params.id}`)
+        loader: ({ params }) => fetch(`https://mindscape-server.vercel.app/classes/instructor/${params.id}`)
       },
       {
         path: 'manageclass',
@@ -114,10 +115,15 @@ const router = createBrowserRouter([
       {
         path: 'manageclass/feedback/:id',
         element: <AdminRoute><Feedback></Feedback></AdminRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/classes/instructor/${params.id}`)
+        loader: ({ params }) => fetch(`https://mindscape-server.vercel.app/classes/instructor/${params.id}`)
       },
     ]
+  },
+  {
+    path:'*',
+    element: <PageNotFound></PageNotFound>
   }
+
 ]);
 
 export default router;

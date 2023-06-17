@@ -5,7 +5,7 @@ import SectionTitle from '../../Compo/SectionTitle/SctionTitle';
 const PropulerInstrutor = () => {
     const [instructor, setInstructor] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://mindscape-server.vercel.app/users')
             .then((res) => res.json())
             .then((data) => {
                 setInstructor(data.filter(user => user.userRole === 'instructor').slice(0, 6));

@@ -18,7 +18,7 @@ const useCart = () => {
     //   return [cart, refetch]
     //   queryKey: ['enrolls', user?.email],
     //     queryFn: async () => {
-    //         const response = await fetch(`http://localhost:5000/enrolls?email=${user?.email}`, { headers: {
+    //         const response = await fetch(`https://mindscape-server.vercel.app/enrolls?email=${user?.email}`, { headers: {
     //             authorization: `bearer ${token}`
     //         }})
     //         return response.json()

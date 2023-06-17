@@ -1,0 +1,50 @@
+.not-found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .not-found-content {
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 5rem;
+    color: #f44336;
+    margin-bottom: 1rem;
+    animation: bounce 1s infinite;
+  }
+  
+  p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .home-btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-size: 1.25rem;
+    background-color: #f44336;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  
+  .home-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  

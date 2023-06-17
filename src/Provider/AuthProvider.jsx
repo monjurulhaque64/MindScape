@@ -45,7 +45,7 @@ const AuthProvider = ({children}) => {
           setUser(currentUser);
           // set token
           if (currentUser) {
-            axios.post('http://localhost:5000/jwt', { email: currentUser.email })
+            axios.post('https://mindscape-server.vercel.app/jwt', { email: currentUser.email })
               .then(response => {
                 // console.log(response.data);
                 localStorage.setItem('access-token', response.data) 

@@ -9,7 +9,6 @@ const PaymentHistory = () => {
 
     const paymentsData = enrollData?.filter((cartItem) => cartItem.paymentStatus === 'paid');
     const sortedPaymentsData = paymentsData?.sort((a, b) => new Date(b.date) - new Date(a.date));
-    console.log(sortedPaymentsData);
 
     const formatDate = (date) => {
         const options = { year: 'numeric', month: '2-digit', day: '2-digit' };

@@ -26,7 +26,7 @@ const MySelectedClasses = () => {
         }).then(result => {
             if (result.isConfirmed) {
                 console.log(item._id);
-                fetch(`http://localhost:5000/enrolls/${item._id}`, {
+                fetch(`https://mindscape-server.vercel.app/enrolls/${item._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

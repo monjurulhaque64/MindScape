@@ -7,7 +7,7 @@ const Instracutor = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:5000/users')
+    fetch('https://mindscape-server.vercel.app/users')
       .then((res) => res.json())
       .then((data) => {
         setInstructor(data.filter(user => user.userRole === 'instructor'));

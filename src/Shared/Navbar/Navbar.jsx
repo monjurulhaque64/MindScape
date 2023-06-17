@@ -17,18 +17,15 @@ const Navbar = () => {
         <li><Link to={'/'}>Home</Link></li>
         <li><Link to={'/instracutor'}>Instructor</Link></li>
         <li><Link to={'/classes'}>Classes</Link></li>
-
-
         {
             user ? <>
-
                 <li><Link to={'dashboard'}>Drashbord</Link></li>
             </> :
 
-                <>
+            <>
                     <li><Link to={'/login'}>Log In</Link></li>
                     <li><Link to={'/register'}>Register</Link></li>
-                </>
+            </>
         }
     </>
     return (
