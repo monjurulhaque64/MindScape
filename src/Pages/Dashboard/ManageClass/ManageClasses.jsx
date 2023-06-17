@@ -110,7 +110,7 @@ const ManageClasses = () => {
                                 <th>{classeData.price}</th>
                                 <th>
                                     {classeData.status === 'pending' && (
-                                        <div>
+                                        <div className='flex gap-2'>
                                             <button onClick={() => handleApprove(classeData)} className='btn btn-info'>
                                                 <AiFillCheckCircle></AiFillCheckCircle>
                                             </button>
@@ -120,7 +120,7 @@ const ManageClasses = () => {
                                         </div>
                                     )}
                                     {classeData.status === 'approve' && (
-                                        <div>
+                                        <div className='flex gap-2'>
                                             <button className='btn btn-info' disabled>
                                                 <AiFillCheckCircle></AiFillCheckCircle>
                                             </button>
@@ -130,7 +130,7 @@ const ManageClasses = () => {
                                         </div>
                                     )}
                                     {classeData.status === 'deny' && (
-                                        <div>
+                                        <div className='flex gap-2'>
                                             <button onClick={() => handleApprove(classeData)} className='btn btn-info' >
                                                 <AiFillCheckCircle></AiFillCheckCircle>
                                             </button>

@@ -79,7 +79,7 @@ const ManageUsers = () => {
   );
 
   return (
-    <div className='w-full'>
+    <div className='w-full p-8'>
       <SectionTitle heading={'All users'} subHeading={'Here All MindScape Member'}></SectionTitle>
       <div className='font-bold flex justify-evenly mt-10 mb-10'>
         <h3>Total Users: {users.length}</h3>
@@ -130,7 +130,7 @@ const ManageUsers = () => {
                 <td>{user.userRole}</td>
                 <th>
                   {user.userRole === 'student' && (
-                    <div>
+                    <div className='flex gap-2'>
                       <button onClick={() => handleMakeInstructor(user)} className='btn btn-info'>
                         Instructor
                       </button>
@@ -140,7 +140,7 @@ const ManageUsers = () => {
                     </div>
                   )}
                   {user.userRole === 'instructor' && (
-                    <div>
+                    <div className='flex gap-2'>
                       <button className='btn btn-info' disabled>
                         Instructor
                       </button>
@@ -150,7 +150,7 @@ const ManageUsers = () => {
                     </div>
                   )}
                   {user.userRole === 'admin' && (
-                    <div>
+                    <div className='flex gap-2'>
                       <button className='btn btn-info' disabled>
                         Instructor
                       </button>
