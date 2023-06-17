@@ -7,8 +7,10 @@ import { Link } from 'react-router-dom';
 
 const MySelectedClasses = () => {
     const [cart, refetch] = useCart();
-    const total = Array.isArray(cart?.data)
-        ? cart.data.reduce((sum, item) => {
+    const data = cart?.data;
+    const paymentsData = data?.filter((cartItem) => cartItem.paymentStatus === 'pending');
+    const total = Array.isArray(paymentsData)
+        ? paymentsData.reduce((sum, item) => {
             return item.price + sum;
         }, 0)
         : 0;
@@ -50,7 +52,7 @@ const MySelectedClasses = () => {
         <div className='w-full'>
             <SectionTitle heading={"Add more"} subHeading={"My Cart"}></SectionTitle>
             <div className='font-bold flex justify-evenly mt-10'>
-                <h3>Total Selected Class: {cart.data?.length}</h3>
+                <h3>Total Selected Class: {paymentsData?.length}</h3>
                 <h3>Total Price: {total}</h3>
             </div>
             <div className="overflow-x-auto mt-10 mb-10 ml-5">
@@ -65,8 +67,8 @@ const MySelectedClasses = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {cart.data?.length > 0 ? (
-                            cart.data.map((item, index) => (
+                        {paymentsData?.length > 0 ? (
+                            paymentsData?.map((item, index) => (
                                 <tr key={item._id}>
                                     <td>{index + 1}</td>
                                     <td>

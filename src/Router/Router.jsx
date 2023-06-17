@@ -22,6 +22,9 @@ import Instracutor from "../Pages/Instratur/Instracutor";
 import ManageClasses from "../Pages/Dashboard/ManageClass/ManageClasses";
 import Feedback from "../Pages/Dashboard/Feedback/Feedback";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
+import MyEnrollClases from "../Pages/Dashboard/MyEnrollClass/MyEnrollClases";
+import GiveRiview from "../Pages/Dashboard/GiveRiview/GiveRiview";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +76,18 @@ const router = createBrowserRouter([
       {
         path: 'myhome',
         element: <StudentHome></StudentHome>
+      },
+      {
+        path: 'paymenthistory',
+        element: <PaymentHistory></PaymentHistory>
+      },
+      {
+        path: 'myenrollclasses',
+        element: <MyEnrollClases></MyEnrollClases>
+      },
+      {
+        path: 'addreview',
+        element: <GiveRiview></GiveRiview>
       },
       {
         path: 'myselectedclass/payment/:id',

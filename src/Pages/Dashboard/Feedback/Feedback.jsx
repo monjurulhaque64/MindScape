@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../../Provider/AuthProvider';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import SectionTitle from '../../Compo/SectionTitle/SctionTitle';

@@ -8,8 +8,9 @@ const PopularClass = () => {
 
     const popular = classes
         .filter((classItem) => classItem.status === 'approve')
-        .sort((a, b) => b.availableSeats - a.availableSeats)
+        .sort((a, b) => b.student.length - a.student.length)
         .slice(0, 6);
+
 
     return (
         <div className='mx-auto'>

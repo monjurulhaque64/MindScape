@@ -13,7 +13,7 @@ const Review = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch('review.json')
+    fetch('http://localhost:5000/review')
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
@@ -32,7 +32,7 @@ const Review = () => {
             >
               <img className="w-20 mb-4" src={QuotationMark} alt="" />
               <Rating style={{ maxWidth: 180 }} value={review.rating} readOnly />
-              <p className="py-8">{review.details}</p>
+              <p className="py-8">{review.review}</p>
               <h3 className="text-2xl text-orange-400">{review.name}</h3>
             </motion.div>
           </SwiperSlide>
