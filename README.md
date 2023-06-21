@@ -5,3 +5,5 @@
  5. Authentication and User Management: Implement user authentication and management functionality to secure user data and control access to certain features of your website. Packages/Technologies: Firebase Authentication (for user authentication), Firebase Firestore (for user data storage), Node.js (backend development)
 
 Live Website: https://mindscape-b155f.web.app/
+admin user: jobayer64@gmail.com
+admin password:  Jobayer64@gmail.com
